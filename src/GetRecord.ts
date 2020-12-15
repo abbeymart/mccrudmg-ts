@@ -6,11 +6,10 @@
 
 // Import required module(s)
 import { ObjectId } from "mongodb";
-import { getHashCache, setHashCache } from "@mconnect/mccache";
+import { getHashCache, setHashCache, CacheResponseType } from "@mconnect/mccache";
 import { getResMessage, ResponseMessage } from "@mconnect/mcresponse";
 import Crud from "./Crud";
 import { CrudOptionsType, CrudTaskType } from "./types";
-import { CacheResponseType } from "@mconnect/mccache";
 import { validateGetParams } from "./ValidateCrudParam";
 import { getParamsMessage } from "@mconnect/mcutils";
 

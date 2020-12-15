@@ -43,6 +43,7 @@
   },
   "dependencies": {
     "@mconnect/mcauditlog": "^0.2.1",
+    "@mconnect/mccache": "^0.3.0",
     "@mconnect/mcresponse": "^0.2.0",
     "@mconnect/mcutils": "^0.2.1",
     "mongodb": "^3.6.3"
