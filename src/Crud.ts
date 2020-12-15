@@ -135,7 +135,7 @@ class Crud {
     }
 
     checkDb(dbConnect: MongoDbConnectType): ResponseMessage {
-        if (dbConnect) {
+        if (dbConnect && dbConnect.databaseName !== "") {
             return getResMessage("success", {
                 message: "valid database connection/handler",
             });
@@ -199,11 +199,15 @@ class Crud {
                 }
             }).toArray();
 
-            if (currentRecords.length > 0) {
+            if (currentRecords.length > 0 && currentRecords.length === this.docIds.length) {
                 // update crud instance value
                 this.currentRecs = currentRecords;
                 return getResMessage("success", {
                     message: "record exists for update",
+                });
+            } else if (currentRecords.length < this.docIds.length ) {
+                return getResMessage("notFound", {
+                    message: `Only ${currentRecords.length} out of ${this.docIds.length} update-requested-records were found`,
                 });
             } else {
                 return getResMessage("notFound", {
@@ -213,7 +217,7 @@ class Crud {
         } catch (e) {
             console.error(e);
             return getResMessage("notFound", {
-                message: "Record(s) requested for updates, not found.",
+                message: "Error finding the record(s) requested for updates.",
             });
         }
     }
@@ -238,7 +242,6 @@ class Crud {
                 message: "Record(s) requested for updates, not found.",
             });
         }
-
     }
 
     // getRoleServices returns the role-service documents/records for the authorized user
