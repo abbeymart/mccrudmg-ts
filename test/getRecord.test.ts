@@ -70,7 +70,7 @@ let coll = "locations",
             const res = await crud.getRecord();
             console.log('response code: ', res.code);
             console.log("response-value-count: ", res.value.length);
-            assertEquals(res.message, "from cache");
+            assertEquals(res.message.includes("successfully | from cache"), true);
             assertEquals(res.value.length > 0, true);
         },
     });
@@ -144,7 +144,7 @@ let coll = "locations",
             };
             const crud = newGetRecord(params, options);
             const res = await crud.getRecord();
-            assertEquals(res.code, "paramsError");
+            assertEquals(res.code, "paramsError" || "unknown");
         },
     });
     // post testing report

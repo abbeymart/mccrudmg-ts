@@ -40,7 +40,7 @@ class DeleteRecord extends Crud {
 
         const errors = validateDeleteParams(this.params);
         if (Object.keys(errors).length > 0) {
-            return getParamsMessage(errors);
+            return getParamsMessage(errors, "paramsError");
         }
 
         // for queryParams, exclude _id, if present

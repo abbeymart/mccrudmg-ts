@@ -38,7 +38,7 @@ class GetRecordStream extends Crud {
 
         const errors = validateGetParams(this.params);
         if (Object.keys(errors).length > 0) {
-            const errorRes = getParamsMessage(errors);
+            const errorRes = getParamsMessage(errors, "paramsError");
             // return getParamsMessage(errors);
             throw new Error(errorRes.message);
         }

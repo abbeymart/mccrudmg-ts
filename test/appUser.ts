@@ -21,42 +21,39 @@ export const dbs = {
 export const dbName = "mc-central";
 
 export const appUser = {
-    tokenId     : 'db7f01756bf65a089bea259ae0ebfcf50dfeb9140e614d7903de48c4cf0f52db',
+    tokenId     : '583d3d40d68b165c001e236a50936b9c1852fe7b53c2e46c9ef93d21649ee77b',
     testUserInfo: {
-        token    : "db7f01756bf65a089bea259ae0ebfcf50dfeb9140e614d7903de48c4cf0f52db",
-        group    : "5b4543a417d6841d393e0e99",
-        email    : "abbeya1@yahoo.com",
-        firstName: "Abi",
-        language : "en-US",
-        lastName : "Akindele",
         loginName: "abbeya1@yahoo.com",
-        userId   : "5b0e139b3151184425aae01c",
-        expire   : 0,
+        email    : "abbeya1@yahoo.com",
+        userId: "5b0e139b3151184425aae01c",
+        expire: 1608174360299,
+        firstName: "Abi",
+        language: "en-US",
+        lastName: "Akindele",
+        token: "583d3d40d68b165c001e236a50936b9c1852fe7b53c2e46c9ef93d21649ee77b",
     },
 };
 
 export const userInfo: UserInfoType = {
-    token    : "db7f01756bf65a089bea259ae0ebfcf50dfeb9140e614d7903de48c4cf0f52db",
-    group    : "5b4543a417d6841d393e0e99",
-    email    : "abbeya1@yahoo.com",
-    firstName: "Abi",
-    language : "en-US",
-    lastName : "Akindele",
     loginName: "abbeya1@yahoo.com",
-    userId   : "5b0e139b3151184425aae01c",
-    expire   : 0,
+    email    : "abbeya1@yahoo.com",
+    userId: "5b0e139b3151184425aae01c",
+    expire: 1608174360299,
+    firstName: "Abi",
+    language: "en-US",
+    lastName: "Akindele",
+    token: "583d3d40d68b165c001e236a50936b9c1852fe7b53c2e46c9ef93d21649ee77b",
 };
 
 export const inValidUserInfo: UserInfoType = {
-    token    : "",
-    group    : "5b4543a417d6841d393e0e99",
-    email    : "abbeya1@yahoo.com",
-    firstName: "Abi",
-    language : "en-US",
-    lastName : "Akindele",
     loginName: "abbeya1@yahoo.com",
-    userId   : "5b0e139b3151184425aae09c",
-    expire   : 0,
+    email    : "abbeya1@yahoo.com",
+    userId: "5b0e139b3151184425aae01c",
+    expire: 0,
+    firstName: "Abi",
+    language: "en-US",
+    lastName: "Akindele",
+    token: "",
 };
 
-export const token = "db7f01756bf65a089bea259ae0ebfcf50dfeb9140e614d7903de48c4cf0f52db";
+export const token = "583d3d40d68b165c001e236a50936b9c1852fe7b53c2e46c9ef93d21649ee77b";

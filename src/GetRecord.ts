@@ -37,7 +37,7 @@ class GetRecord extends Crud {
 
         const errors = validateGetParams(this.params);
         if (Object.keys(errors).length > 0) {
-            return getParamsMessage(errors);
+            return getParamsMessage(errors, "paramsError");
         }
 
         // set maximum limit and default values per query

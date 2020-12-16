@@ -138,7 +138,7 @@ let coll = "locations",
                     // assertEquals(res.code, "paramsError");
                 });
             } catch (e) {
-                assertEquals(e.message, "coll : Information item is required");
+                assertEquals(e.message.includes("coll : Information item is required"), true);
             }
         },
     });

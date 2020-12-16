@@ -50,7 +50,7 @@ class SaveRecord extends Crud {
 
         const errors = validateSaveParams(this.params);
         if (!isEmptyObject(errors)) {
-            return getParamsMessage(errors);
+            return getParamsMessage(errors, "paramsError");
         }
         // determine update / create (new) items from actionParams
         await this.computeItems();
