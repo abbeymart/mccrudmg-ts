@@ -5,11 +5,10 @@
  * @Description: mc-central-ts: getRecord testing
  */
 
-import { mcTest, assertEquals, postTestResult } from "../../mc-test";
-import { userInfo, dbName } from "./appUser";
-import { newDbMongo } from "../../mc-db/src";
-import { dbs } from "../../mc-db/test/config/dbConfig";
-import { GetRecord, newGetRecord } from "..";
+import { mcTest, assertEquals, postTestResult } from "@mconnect/mctest";
+import { userInfo, dbName, dbs } from "./appUser";
+import { newDbMongo } from "@mconnect/mcdb";
+import { GetRecord, newGetRecord } from "../src";
 import { CrudTaskType } from "../src/types";
 
 let coll = "locations",

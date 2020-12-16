@@ -4,7 +4,19 @@
  * @License: All Rights Reserved | LICENSE.md
  * @Description: mc-central-ts: bookmark socket.io
  */
-import { UserInfoType } from "../";
+import { UserInfoType } from "../src";
+
+export const dbs = {
+    mongodb: {
+        location: process.env.MONGODB_URL || "mongodb://localhost:27017/mc-central",
+        host    : process.env.MONGODB_HOST || "localhost",
+        username: process.env.MONGODB_USER || "abbeymart",
+        password: process.env.MONGODB_PWD || "ab12testing",
+        database: process.env.MONGODB_DBNAME || "mc-central",
+        port    : process.env.MONGODB_PORT || 27017,
+    }
+
+}
 
 export const dbName = "mc-central";
 
