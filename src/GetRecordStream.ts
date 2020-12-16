@@ -9,7 +9,7 @@ import { Cursor, ObjectId } from 'mongodb';
 import Crud from './Crud';
 import { CrudOptionsType, CrudTaskType, } from "./types";
 import { validateGetParams } from "./ValidateCrudParam";
-import { getParamsMessage } from "@mconnect/mcutils";
+import { getParamsMessage, isEmptyObject } from "./helper";
 
 class GetRecordStream extends Crud {
     constructor(params: CrudTaskType,
@@ -37,7 +37,7 @@ class GetRecordStream extends Crud {
         }
 
         const errors = validateGetParams(this.params);
-        if (Object.keys(errors).length > 0) {
+        if (!isEmptyObject(errors)) {
             const errorRes = getParamsMessage(errors, "paramsError");
             // return getParamsMessage(errors);
             throw new Error(errorRes.message);
@@ -80,7 +80,7 @@ class GetRecordStream extends Crud {
                     .limit(this.limit)
                     .project(this.projectParams)
                     .sort(this.sortParams)
-                    // .stream();
+                // .stream();
             } catch (error) {
                 console.error(error);
                 throw new Error(`notFound: ${error.message}`);
@@ -95,7 +95,7 @@ class GetRecordStream extends Crud {
                     .limit(this.limit)
                     .project(this.projectParams)
                     .sort(this.sortParams)
-                    // .stream();
+                // .stream();
             } catch (error) {
                 console.error(error);
                 throw new Error(`notFound: ${error.message}`);
@@ -110,7 +110,7 @@ class GetRecordStream extends Crud {
                 .limit(this.limit)
                 .project(this.projectParams)
                 .sort(this.sortParams)
-                // .stream();
+            // .stream();
         } catch (error) {
             console.error(error);
             throw new Error(`notFound: ${error.message}`);
@@ -119,8 +119,7 @@ class GetRecordStream extends Crud {
 }
 
 // factory function/constructor
-function newGetRecordStream(params: CrudTaskType,
-                            options: CrudOptionsType = {}) {
+function newGetRecordStream(params: CrudTaskType, options: CrudOptionsType = {}) {
     return new GetRecordStream(params, options);
 }
 

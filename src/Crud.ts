@@ -14,8 +14,8 @@ import {
     CheckAccessType,
     TaskTypes, RoleFuncType, OkResponse, CrudTaskType,
 } from "./types";
-import { AuditLogMongo, newAuditLogMongo } from "../../mc-auditlog/src";
-import { getResMessage, ResponseMessage } from "../../mc-response";
+import { AuditLogMongo, newAuditLogMongo } from "@mconnect/mcauditlog";
+import { getResMessage, ResponseMessage } from "@mconnect/mcresponse";
 
 class Crud {
     protected params: CrudTaskType;

@@ -5,9 +5,8 @@
  * @Description: mc-central-ts: validate-crud-param
  */
 
-import * as utils from "@mconnect/mcutils";
+import * as utils from "./validate";
 import { mcMessages } from "./helper";
-
 import { CrudTaskType } from "./types";
 
 export function validateSaveParams(crudParams: CrudTaskType) {

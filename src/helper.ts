@@ -5,11 +5,41 @@
  * @Description: mc-crud helper functions
  */
 
+import { getResMessage, ResponseMessage } from "@mconnect/mcresponse";
+import { MongoDbConnectType } from "./types";
+
 export function isEmptyObject(val: object): boolean {
     if (Object.keys(val).length > 0 && Object.values(val).length > 0) {
         return false
     }
     return true;
+}
+
+interface MessageObject {
+    [key: string]: string;
+
+}
+
+export function getParamsMessage(msgObject: MessageObject, msgType = "unknown"): ResponseMessage {
+    let messages = "";
+    Object.entries(msgObject).forEach(([key, msg]) => {
+        messages = messages ? `${messages} | ${key} : ${msg}` : `${key} : ${msg}`;
+    });
+    return getResMessage(msgType, {
+        message: messages,
+    });
+}
+
+export function checkDb(dbConnect: MongoDbConnectType): ResponseMessage {
+    if (dbConnect && dbConnect.databaseName !== "") {
+        return getResMessage("success", {
+            message: "valid database connection/handler",
+        });
+    } else {
+        return getResMessage("validateError", {
+            message: "valid database connection/handler is required",
+        });
+    }
 }
 
 export const mcMessages = {

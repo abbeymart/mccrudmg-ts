@@ -5,6 +5,8 @@
  */
 
 export * from "./AuthCrud";
+export * from "./helper"
+export * from "./validate"
 export * from "./types";
 export * from "./SaveRecord";
 export * from "./GetRecord";

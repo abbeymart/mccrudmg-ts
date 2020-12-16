@@ -11,7 +11,7 @@ import { getResMessage, ResponseMessage } from "@mconnect/mcresponse";
 import Crud from "./Crud";
 import { CrudOptionsType, CrudTaskType } from "./types";
 import { validateGetParams } from "./ValidateCrudParam";
-import { getParamsMessage } from "@mconnect/mcutils";
+import { getParamsMessage, isEmptyObject } from "./helper";
 
 class GetRecord extends Crud {
     constructor(params: CrudTaskType,
@@ -36,7 +36,7 @@ class GetRecord extends Crud {
         }
 
         const errors = validateGetParams(this.params);
-        if (Object.keys(errors).length > 0) {
+        if (!isEmptyObject(errors)) {
             return getParamsMessage(errors, "paramsError");
         }
 
@@ -160,8 +160,7 @@ class GetRecord extends Crud {
 }
 
 // factory function/constructor
-function newGetRecord(params: CrudTaskType,
-                      options: CrudOptionsType = {}) {
+function newGetRecord(params: CrudTaskType, options: CrudOptionsType = {}) {
     return new GetRecord(params, options);
 }
 

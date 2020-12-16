@@ -7,20 +7,8 @@
 // Import required module/function(s)
 import { getResMessage, ResponseMessage } from "@mconnect/mcresponse";
 import { validateLoadParams } from "./ValidateCrudParam";
-import { getParamsMessage } from "@mconnect/mcutils";
+import { getParamsMessage, checkDb, isEmptyObject } from "./helper";
 import { CrudOptionsType, CrudTaskType, MongoDbConnectType, UserInfoType } from "./types";
-
-function checkDb(appDb: MongoDbConnectType): ResponseMessage {
-    if (appDb) {
-        return getResMessage("success", {
-            message: "valid database connection/handler",
-        });
-    } else {
-        return getResMessage("validateError", {
-            message: "valid database connection/handler is required",
-        });
-    }
-}
 
 class LoadRecord {
     protected params: CrudTaskType;
@@ -55,7 +43,7 @@ class LoadRecord {
     async loadRecord() {
         // Check/validate the attributes / parameters
         const dbCheck = checkDb(this.appDb);
-        if (dbCheck && Object.keys(dbCheck).length > 0) {
+        if (dbCheck.code !== "success") {
             return dbCheck;
         }
 
@@ -69,8 +57,8 @@ class LoadRecord {
             errors.maxQueryLimit = `${this.actionParams.length} records load-request, exceeded ${this.maxQueryLimit} limit. 
         Please send not more than ${this.maxQueryLimit} records to load at a time`;
         }
-        if (Object.keys(errors).length > 0) {
-            return getParamsMessage(errors);
+        if (!isEmptyObject(errors)) {
+            return getParamsMessage(errors, "paramsError");
         }
 
         // create/load multiple records

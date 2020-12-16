@@ -12,7 +12,7 @@ import Crud from "./Crud";
 import { deleteHashCache } from "@mconnect/mccache";
 import { CrudOptionsType, CrudTaskType, TaskTypes } from "./types";
 import { validateDeleteParams } from "./ValidateCrudParam";
-import { getParamsMessage } from "@mconnect/mcutils";
+import { getParamsMessage, isEmptyObject } from "./helper";
 
 class DeleteRecord extends Crud {
     constructor(params: CrudTaskType,
@@ -39,7 +39,7 @@ class DeleteRecord extends Crud {
         }
 
         const errors = validateDeleteParams(this.params);
-        if (Object.keys(errors).length > 0) {
+        if (!isEmptyObject(errors)) {
             return getParamsMessage(errors, "paramsError");
         }
 
