@@ -8,3 +8,4 @@
 export * from "./modelTypes";
 export * from "./relationDb";
 export * from "./helpers";
+export * from "./model";

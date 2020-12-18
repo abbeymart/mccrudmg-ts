@@ -12,4 +12,6 @@ export * from "./SaveRecord";
 export * from "./GetRecord";
 export * from "./GetRecordStream";
 export * from "./DeleteRecord";
-export * from "./model";
+export * from "./model/modelTypes";
+export * from "./model/relationDb";
+export * from "./model/helpers";
