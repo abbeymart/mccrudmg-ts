@@ -1,6 +1,6 @@
 # Historical logs
 
-## Version 0.2.5
+## Version 0.2.5, 0.2.6
 - Release date: Dec 18, 2020
 - Exported model class and methods
 
