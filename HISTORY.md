@@ -1,5 +1,9 @@
 # Historical logs
 
+## Version 0.2.7
+- Release date: Jan 25, 2021
+- Updated mcdb package
+
 ## Version 0.2.5, 0.2.6
 - Release date: Dec 18, 2020
 - Exported model class and methods

@@ -23,7 +23,7 @@ let coll = "locations",
 
 (async () => {
     // pre-testing setup
-    let dbServer = await newDbMongo(dbs.mongodb);
+    let dbServer = await newDbMongo(dbs.mongodb, {checkAccess: false});
     let appDb = await dbServer.openDb(dbName);
     let params: CrudTaskType = {
         appDb        : appDb,

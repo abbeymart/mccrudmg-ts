@@ -8,6 +8,7 @@
 import { AuditLogMongo } from "@mconnect/mcauditlog";
 import { Db, ObjectId } from "mongodb";
 import {ModelOptionsType} from "./model";
+import { EmailConfigType } from "../../mc-mail/src";
 
 export type MongoDbConnectType = Db;
 

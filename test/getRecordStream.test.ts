@@ -21,7 +21,7 @@ let coll = "locations",
 
 (async () => {
     // pre-testing setup
-    let dbServer = await newDbMongo(dbs.mongodb);
+    let dbServer = await newDbMongo(dbs.mongodb, {checkAccess: false});
     let appDb = await dbServer.openDb(dbName);
     let params: CrudTaskType = {
         appDb        : appDb,
@@ -107,7 +107,7 @@ let coll = "locations",
             let resItems: Array<any> = [];
             const crud = newGetRecordStream(params, options);
             const res: Cursor = await crud.getRecordStream();
-            for await (const data of res){
+            for await (const data of res) {
                 resItems.push(data);
             }
             // await res.forEach((dataRec) => {
@@ -134,7 +134,7 @@ let coll = "locations",
                 const crud = newGetRecordStream(params, options);
                 const res: Cursor = await crud.getRecordStream();
                 await res.forEach((dataRec) => {
-                    console.dir( dataRec );
+                    console.dir(dataRec);
                     // assertEquals(res.code, "paramsError");
                 });
             } catch (e) {

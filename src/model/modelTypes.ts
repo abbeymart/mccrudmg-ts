@@ -45,5 +45,5 @@ export interface MessageObject {
 
 export interface ValidateResponseType {
     ok: boolean;
-    errors?: MessageObject;
+    errors: MessageObject;
 }
