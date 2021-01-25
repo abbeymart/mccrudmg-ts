@@ -10,6 +10,7 @@ import { userInfo, dbName, dbs } from "./appUser";
 import { newDbMongo } from "@mconnect/mcdb";
 import { GetRecord, newGetRecord } from "../src";
 import { CrudTaskType } from "../src/types";
+import { myDbAccess } from "./config/secure/dbConfig";
 
 let coll = "locations",
     docIds1 = ['5b57f583b3db46019a22bd9c'],
@@ -23,8 +24,8 @@ let coll = "locations",
 
 (async () => {
     // pre-testing setup
-    let dbServer = await newDbMongo(dbs.mongodb, {checkAccess: false});
-    let appDb = await dbServer.openDb(dbName);
+    let dbServer = await newDbMongo(myDbAccess, {checkAccess: true});
+    let appDb = await dbServer.openDb(myDbAccess.database);
     let params: CrudTaskType = {
         appDb        : appDb,
         coll         : coll,

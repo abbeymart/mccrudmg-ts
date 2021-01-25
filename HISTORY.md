@@ -1,5 +1,9 @@
 # Historical logs
 
+## Version 0.2.8
+- Release date: Jan 25, 2021
+- Updated mcauditlog-v0.2.3 and mcdb-v0.2.5 packages
+
 ## Version 0.2.7
 - Release date: Jan 25, 2021
 - Updated mcdb package
